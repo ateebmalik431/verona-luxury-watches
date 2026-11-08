@@ -1,0 +1,4926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VÉRONA — Ultra Luxury Watches</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --gold:#d8b66c;
+  --gold2:#f6dc98;
+  --bg:#050505;
+  --card:#0d0d0d;
+  --muted:#888;
+  --line:#222;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--bg);
+  color:#eee;
+  font-family:Inter,Arial,sans-serif;
+  overflow-x:hidden;
+}
+
+body.lock{
+  overflow:hidden;
+}
+
+button,
+input,
+select,
+textarea{
+  font:inherit;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+
+/* ==============================
+   LOADER
+============================== */
+
+#loader{
+  position:fixed;
+  inset:0;
+  background:#030303;
+  z-index:99999;
+  display:grid;
+  place-items:center;
+  transition:.8s;
+}
+
+.loader{
+  text-align:center;
+}
+
+.loader b{
+  font:500 62px "Cormorant Garamond";
+  letter-spacing:10px;
+}
+
+.loader small{
+  display:block;
+  color:#777;
+  letter-spacing:5px;
+  margin-top:15px;
+}
+
+.bar{
+  width:190px;
+  height:1px;
+  background:#333;
+  margin:18px auto;
+}
+
+.bar i{
+  display:block;
+  height:100%;
+  width:0;
+  background:var(--gold);
+  animation:load 1.7s forwards;
+}
+
+@keyframes load{
+  to{
+    width:100%;
+  }
+}
+
+
+/* ==============================
+   PARTICLES
+============================== */
+
+#particles{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+}
+
+.particle{
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:#fff;
+  border-radius:50%;
+  opacity:.2;
+  animation:float linear infinite;
+}
+
+@keyframes float{
+  from{
+    transform:translateY(110vh);
+  }
+
+  to{
+    transform:translateY(-10vh);
+  }
+}
+
+
+/* ==============================
+   NAVBAR
+============================== */
+
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:80px;
+  z-index:1000;
+
+  padding:0 6%;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  background:rgba(3,3,3,.72);
+  backdrop-filter:blur(20px);
+
+  border-bottom:1px solid #171717;
+
+  transition:.4s;
+}
+
+.logo{
+  font:600 31px "Cormorant Garamond";
+  letter-spacing:6px;
+}
+
+.logo span{
+  color:var(--gold);
+}
+
+.navlinks{
+  display:flex;
+  gap:32px;
+
+  color:#aaa;
+
+  font-size:11px;
+  letter-spacing:2px;
+}
+
+.navlinks a{
+  transition:.3s;
+}
+
+.navlinks a:hover{
+  color:var(--gold);
+}
+
+.icon{
+  width:44px;
+  height:44px;
+
+  border:1px solid #292929;
+  border-radius:50%;
+
+  background:#0b0b0b;
+  color:#fff;
+
+  cursor:pointer;
+
+  transition:.3s;
+
+  position:relative;
+}
+
+.icon:hover{
+  border-color:var(--gold);
+  color:var(--gold);
+  transform:translateY(-2px);
+}
+
+.count{
+  position:absolute;
+
+  right:-4px;
+  top:-4px;
+
+  width:18px;
+  height:18px;
+
+  border-radius:50%;
+
+  background:var(--gold);
+  color:#111;
+
+  font-size:10px;
+  font-weight:800;
+
+  display:grid;
+  place-items:center;
+}
+
+
+/* ==============================
+   HERO
+============================== */
+
+.hero{
+  min-height:100vh;
+
+  padding:120px 6% 60px;
+
+  display:grid;
+  place-items:center;
+
+  position:relative;
+  overflow:hidden;
+}
+
+.hero:before{
+  content:"";
+
+  position:absolute;
+
+  width:700px;
+  height:700px;
+
+  left:-300px;
+  top:150px;
+
+  border-radius:50%;
+
+  background:radial-gradient(
+    circle,
+    rgba(216,182,108,.09),
+    transparent 65%
+  );
+
+  filter:blur(20px);
+}
+
+.hero:after{
+  content:"";
+
+  position:absolute;
+
+  width:650px;
+  height:650px;
+
+  border-radius:50%;
+
+  right:-180px;
+  top:80px;
+
+  background:radial-gradient(
+    circle,
+    rgba(216,182,108,.14),
+    transparent 65%
+  );
+
+  filter:blur(10px);
+}
+
+.hero-grid{
+  width:100%;
+  max-width:1450px;
+
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  align-items:center;
+
+  gap:35px;
+
+  z-index:2;
+}
+
+.kicker{
+  font-size:11px;
+  letter-spacing:5px;
+  color:var(--gold);
+}
+
+.hero h1{
+  font:500 clamp(65px,8vw,125px)/.8 "Cormorant Garamond";
+
+  letter-spacing:-4px;
+
+  margin:20px 0;
+}
+
+.hero h1 em{
+  font-style:normal;
+  color:var(--gold);
+}
+
+.hero p{
+  max-width:550px;
+
+  color:#999;
+
+  line-height:1.9;
+
+  margin:28px 0;
+}
+
+.buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  border:1px solid var(--gold);
+
+  background:var(--gold);
+
+  color:#111;
+
+  padding:15px 24px;
+
+  cursor:pointer;
+
+  font-size:10px;
+
+  font-weight:800;
+
+  letter-spacing:2px;
+
+  transition:.35s;
+}
+
+.btn:hover{
+  background:transparent;
+  color:var(--gold);
+
+  transform:translateY(-3px);
+
+  box-shadow:0 10px 35px rgba(216,182,108,.12);
+}
+
+.btn.dark{
+  background:transparent;
+  color:#fff;
+  border-color:#444;
+}
+
+.btn.dark:hover{
+  border-color:var(--gold);
+  color:var(--gold);
+}
+
+
+/* ==============================
+   HERO WATCH
+============================== */
+
+.hero-watch{
+  height:600px;
+
+  display:grid;
+  place-items:center;
+
+  position:relative;
+
+  perspective:1000px;
+}
+
+.orbit{
+  position:absolute;
+
+  border:1px solid rgba(216,182,108,.2);
+
+  border-radius:50%;
+
+  animation:spin 18s linear infinite;
+}
+
+.o1{
+  width:500px;
+  height:500px;
+}
+
+.o2{
+  width:620px;
+  height:290px;
+
+  transform:rotate(-25deg);
+
+  animation-duration:25s;
+}
+
+@keyframes spin{
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+.hero-img{
+  width:min(530px,90%);
+  height:540px;
+
+  object-fit:contain;
+
+  filter:drop-shadow(0 35px 40px #000);
+
+  animation:floatwatch 5s ease-in-out infinite;
+
+  transition:.6s;
+}
+
+@keyframes floatwatch{
+
+  50%{
+    transform:translateY(-18px) rotateY(5deg);
+  }
+
+}
+
+.hero-watch:hover .hero-img{
+  transform:scale(1.06) rotate(2deg);
+}
+
+
+/* ==============================
+   TICKER
+============================== */
+
+.ticker{
+  overflow:hidden;
+
+  border-block:1px solid #191919;
+
+  background:#080808;
+
+  white-space:nowrap;
+}
+
+.ticker div{
+  display:inline-block;
+
+  padding:18px 0;
+
+  color:#777;
+
+  font-size:10px;
+
+  letter-spacing:4px;
+
+  animation:ticker 25s linear infinite;
+}
+
+.ticker span{
+  color:var(--gold);
+  margin:0 35px;
+}
+
+@keyframes ticker{
+
+  to{
+    transform:translateX(-50%);
+  }
+
+}
+
+
+/* ==============================
+   GENERAL SECTIONS
+============================== */
+
+section{
+  padding:110px 6%;
+}
+
+.head{
+  max-width:1450px;
+
+  margin:0 auto 40px;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:end;
+
+  gap:25px;
+}
+
+.head h2{
+  font:500 65px "Cormorant Garamond";
+}
+
+.head p{
+  max-width:430px;
+
+  color:#777;
+
+  line-height:1.8;
+}
+
+
+/* ==============================
+   FILTERS
+============================== */
+
+.controls{
+  max-width:1450px;
+
+  margin:0 auto 30px;
+
+  display:flex;
+
+  gap:10px;
+
+  flex-wrap:wrap;
+}
+
+.search{
+  flex:1;
+
+  min-width:230px;
+
+  background:#0b0b0b;
+
+  border:1px solid #292929;
+
+  color:#fff;
+
+  padding:15px;
+
+  outline:none;
+}
+
+.search:focus{
+  border-color:var(--gold);
+}
+
+.filter{
+  background:#0b0b0b;
+
+  border:1px solid #292929;
+
+  color:#888;
+
+  padding:13px 17px;
+
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+.filter:hover,
+.filter.active{
+  background:var(--gold);
+
+  color:#111;
+
+  border-color:var(--gold);
+}
+
+
+/* ==============================
+   PRODUCTS
+============================== */
+
+.products{
+  max-width:1450px;
+
+  margin:auto;
+
+  display:grid;
+
+  grid-template-columns:repeat(4,1fr);
+
+  gap:18px;
+}
+
+.product{
+  background:linear-gradient(
+    145deg,
+    #111,
+    #080808
+  );
+
+  border:1px solid #181818;
+
+  overflow:hidden;
+
+  transition:.5s;
+
+  opacity:0;
+
+  transform:translateY(25px);
+
+  transform-style:preserve-3d;
+}
+
+.product.show{
+  opacity:1;
+
+  transform:none;
+}
+
+.product:hover{
+  transform:translateY(-10px);
+
+  border-color:rgba(216,182,108,.5);
+
+  box-shadow:0 25px 60px #000;
+}
+
+.pic{
+  height:325px;
+
+  position:relative;
+
+  overflow:hidden;
+
+  background:#111;
+}
+
+.pic:after{
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:radial-gradient(
+    circle,
+    rgba(216,182,108,.1),
+    transparent 60%
+  );
+
+  pointer-events:none;
+}
+
+.pic img{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  transition:.7s;
+}
+
+.product:hover .pic img{
+  transform:scale(1.1) rotate(1deg);
+}
+
+.badge{
+  position:absolute;
+
+  z-index:2;
+
+  top:13px;
+  left:13px;
+
+  background:var(--gold);
+
+  color:#111;
+
+  font-size:8px;
+
+  font-weight:800;
+
+  letter-spacing:2px;
+
+  padding:7px 9px;
+}
+
+.wish{
+  position:absolute;
+
+  z-index:3;
+
+  right:13px;
+  top:13px;
+
+  width:36px;
+  height:36px;
+
+  border-radius:50%;
+
+  border:1px solid #444;
+
+  background:#0009;
+
+  color:#fff;
+
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+.wish:hover{
+  transform:scale(1.1);
+}
+
+.wish.liked{
+  color:#f2b8c5;
+
+  border-color:#f2b8c5;
+}
+
+.info{
+  padding:21px;
+}
+
+.info small{
+  font-size:8px;
+
+  letter-spacing:2px;
+
+  color:#777;
+}
+
+.info h3{
+  font:600 27px "Cormorant Garamond";
+
+  margin:6px 0;
+}
+
+.stars{
+  color:var(--gold);
+
+  font-size:10px;
+
+  letter-spacing:2px;
+}
+
+.price{
+  font-weight:700;
+
+  margin:12px 0 17px;
+}
+
+.row{
+  display:flex;
+  gap:7px;
+}
+
+.add{
+  flex:1;
+
+  padding:12px;
+
+  border:1px solid var(--gold);
+
+  background:transparent;
+
+  color:var(--gold);
+
+  cursor:pointer;
+
+  font-size:9px;
+
+  font-weight:800;
+
+  letter-spacing:1px;
+
+  transition:.3s;
+}
+
+.add:hover{
+  background:var(--gold);
+
+  color:#111;
+}
+
+.quick{
+  width:44px;
+
+  border:1px solid #333;
+
+  background:#111;
+
+  color:#aaa;
+
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+.quick:hover{
+  color:var(--gold);
+
+  border-color:var(--gold);
+}
+
+
+/* ==============================
+   SHOWCASE
+============================== */
+
+.showcase{
+  max-width:1450px;
+
+  margin:auto;
+
+  display:grid;
+
+  grid-template-columns:1.1fr .9fr;
+
+  background:#090909;
+
+  border:1px solid #1d1d1d;
+
+  overflow:hidden;
+}
+
+.show-img{
+  min-height:560px;
+
+  overflow:hidden;
+}
+
+.show-img img{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  transition:1s;
+}
+
+.showcase:hover img{
+  transform:scale(1.07);
+}
+
+.show-text{
+  padding:70px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+}
+
+.show-text h2{
+  font:500 72px/.88 "Cormorant Garamond";
+
+  margin:15px 0 25px;
+}
+
+.show-text p{
+  color:#888;
+
+  line-height:1.9;
+
+  margin-bottom:25px;
+}
+
+
+/* ==============================
+   FEATURES
+============================== */
+
+.features{
+  max-width:1450px;
+
+  margin:auto;
+
+  display:grid;
+
+  grid-template-columns:repeat(4,1fr);
+
+  gap:1px;
+
+  background:#222;
+}
+
+.feature{
+  background:#080808;
+
+  padding:43px 28px;
+
+  min-height:210px;
+
+  transition:.4s;
+}
+
+.feature:hover{
+  background:#101010;
+
+  transform:translateY(-5px);
+}
+
+.feature .fi{
+  font-size:27px;
+
+  color:var(--gold);
+
+  margin-bottom:18px;
+}
+
+.feature h3{
+  font:600 27px "Cormorant Garamond";
+
+  margin-bottom:10px;
+}
+
+.feature p{
+  color:#777;
+
+  line-height:1.7;
+
+  font-size:12px;
+}
+
+
+/* ==============================
+   NEWSLETTER
+============================== */
+
+.news{
+  max-width:1000px;
+
+  margin:auto;
+
+  text-align:center;
+
+  padding:80px 30px;
+
+  border:1px solid #222;
+
+  background:
+  radial-gradient(
+    circle at center,
+    #17130b,
+    #080808 65%
+  );
+}
+
+.news h2{
+  font:500 55px "Cormorant Garamond";
+
+  margin-top:8px;
+}
+
+.news p{
+  color:#777;
+
+  max-width:550px;
+
+  margin:15px auto 25px;
+}
+
+.news form{
+  display:flex;
+
+  max-width:600px;
+
+  margin:auto;
+}
+
+.news input{
+  flex:1;
+
+  background:#050505;
+
+  border:1px solid #333;
+
+  color:#fff;
+
+  padding:16px;
+
+  outline:none;
+}
+
+.news input:focus{
+  border-color:var(--gold);
+}
+
+.news button{
+  border:0;
+
+  background:var(--gold);
+
+  padding:0 25px;
+
+  cursor:pointer;
+
+  font-weight:800;
+}
+
+
+/* ==============================
+   FOOTER
+============================== */
+
+footer{
+  border-top:1px solid #181818;
+
+  padding:45px 6%;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  color:#666;
+
+  font-size:11px;
+}
+
+footer strong{
+  font:600 25px "Cormorant Garamond";
+
+  letter-spacing:4px;
+
+  color:#eee;
+}
+
+footer p{
+  margin-top:8px;
+}
+
+
+/* ==============================
+   MODALS
+============================== */
+
+.overlay{
+  position:fixed;
+
+  inset:0;
+
+  background:#000b;
+
+  backdrop-filter:blur(12px);
+
+  z-index:3000;
+
+  display:none;
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:20px;
+}
+
+.overlay.open{
+  display:flex;
+}
+
+.modal{
+  width:min(700px,100%);
+
+  max-height:90vh;
+
+  overflow:auto;
+
+  background:#0c0c0c;
+
+  border:1px solid #292929;
+
+  padding:30px;
+
+  position:relative;
+
+  animation:modal .35s ease;
+}
+
+@keyframes modal{
+
+  from{
+    opacity:0;
+
+    transform:
+    translateY(20px)
+    scale(.96);
+  }
+
+  to{
+    opacity:1;
+
+    transform:none;
+  }
+
+}
+
+.close{
+  position:absolute;
+
+  right:17px;
+  top:17px;
+
+  width:36px;
+  height:36px;
+
+  border-radius:50%;
+
+  border:1px solid #333;
+
+  background:#111;
+
+  color:#fff;
+
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+.close:hover{
+  color:var(--gold);
+
+  border-color:var(--gold);
+
+  transform:rotate(90deg);
+}
+
+.modal h2{
+  font:500 44px "Cormorant Garamond";
+
+  margin-bottom:20px;
+}
+
+
+/* ==============================
+   CART
+============================== */
+
+.cart-list{
+  display:grid;
+
+  gap:10px;
+}
+
+.cart-item{
+  display:grid;
+
+  grid-template-columns:80px 1fr auto;
+
+  gap:14px;
+
+  align-items:center;
+
+  padding:12px 0;
+
+  border-bottom:1px solid #222;
+}
+
+.cart-item img{
+  width:80px;
+  height:80px;
+
+  object-fit:cover;
+}
+
+.cart-item h4{
+  font:600 22px "Cormorant Garamond";
+}
+
+.cart-item p{
+  color:#777;
+
+  font-size:11px;
+
+  margin:4px 0;
+}
+
+.qty{
+  display:flex;
+
+  align-items:center;
+
+  gap:8px;
+}
+
+.qty button{
+  width:25px;
+  height:25px;
+
+  border:1px solid #333;
+
+  background:#111;
+
+  color:#fff;
+
+  cursor:pointer;
+}
+
+.qty button:hover{
+  border-color:var(--gold);
+
+  color:var(--gold);
+}
+
+.remove{
+  border:0!important;
+
+  width:auto!important;
+
+  background:none!important;
+
+  color:#777!important;
+
+  margin-left:6px;
+}
+
+.remove:hover{
+  color:#f55!important;
+}
+
+.empty{
+  text-align:center;
+
+  color:#777;
+
+  padding:45px;
+}
+
+.total{
+  display:flex;
+
+  justify-content:space-between;
+
+  border-top:1px solid #333;
+
+  padding-top:18px;
+
+  margin-top:18px;
+}
+
+.total strong{
+  color:var(--gold);
+}
+
+
+/* ==============================
+   CHECKOUT
+============================== */
+
+.formgrid{
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:12px;
+}
+
+.field{
+  display:flex;
+
+  flex-direction:column;
+
+  gap:6px;
+}
+
+.field.full{
+  grid-column:1/-1;
+}
+
+.field label{
+  font-size:9px;
+
+  letter-spacing:2px;
+
+  color:#777;
+}
+
+.field input,
+.field textarea,
+.field select{
+  background:#080808;
+
+  border:1px solid #292929;
+
+  color:#fff;
+
+  padding:13px;
+
+  outline:none;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus{
+  border-color:var(--gold);
+}
+
+.field textarea{
+  min-height:90px;
+
+  resize:vertical;
+}
+
+.summary{
+  background:#111;
+
+  border:1px solid #222;
+
+  padding:14px;
+
+  margin:18px 0;
+
+  color:#aaa;
+}
+
+
+/* ==============================
+   QUICK VIEW
+============================== */
+
+.quick-grid{
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:25px;
+
+  align-items:center;
+}
+
+.quick-grid img{
+  width:100%;
+
+  height:390px;
+
+  object-fit:cover;
+}
+
+
+/* ==============================
+   SUCCESS
+============================== */
+
+.success{
+  text-align:center;
+
+  padding:35px;
+}
+
+.check{
+  width:80px;
+  height:80px;
+
+  border-radius:50%;
+
+  border:1px solid var(--gold);
+
+  color:var(--gold);
+
+  display:grid;
+
+  place-items:center;
+
+  font-size:35px;
+
+  margin:auto auto 18px;
+
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+
+  50%{
+    box-shadow:
+    0 0 0 15px
+    rgba(216,182,108,0);
+  }
+
+}
+
+
+/* ==============================
+   TOAST
+============================== */
+
+.toast{
+  position:fixed;
+
+  right:22px;
+
+  bottom:22px;
+
+  z-index:5000;
+
+  background:#eee;
+
+  color:#111;
+
+  padding:14px 18px;
+
+  font-size:11px;
+
+  transform:translateY(100px);
+
+  opacity:0;
+
+  transition:.35s;
+}
+
+.toast.show{
+  transform:none;
+
+  opacity:1;
+}
+
+
+/* ==============================
+   TOP BUTTON
+============================== */
+
+#top{
+  position:fixed;
+
+  right:20px;
+
+  bottom:75px;
+
+  width:43px;
+  height:43px;
+
+  border-radius:50%;
+
+  border:1px solid #333;
+
+  background:#0b0b0b;
+
+  color:#fff;
+
+  cursor:pointer;
+
+  opacity:0;
+
+  pointer-events:none;
+
+  transition:.3s;
+
+  z-index:1000;
+}
+
+#top.visible{
+  opacity:1;
+
+  pointer-events:auto;
+}
+
+
+/* ==============================
+   RESPONSIVE
+============================== */
+
+@media(max-width:1100px){
+
+  .products{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .features{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+
+@media(max-width:850px){
+
+  .navlinks{
+    display:none;
+  }
+
+  .hero-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero-watch{
+    order:-1;
+
+    height:430px;
+  }
+
+  .hero-img{
+    height:400px;
+  }
+
+  .o1{
+    width:350px;
+
+    height:350px;
+  }
+
+  .o2{
+    width:420px;
+
+    height:220px;
+  }
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .showcase{
+    grid-template-columns:1fr;
+  }
+
+  .show-img{
+    min-height:350px;
+  }
+
+  .show-text{
+    padding:45px;
+  }
+
+  .quick-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+
+@media(max-width:560px){
+
+  section{
+    padding:75px 5%;
+  }
+
+  .hero{
+    padding:100px 5% 50px;
+  }
+
+  .hero h1{
+    font-size:62px;
+  }
+
+  .hero-watch{
+    height:350px;
+  }
+
+  .hero-img{
+    height:330px;
+  }
+
+  .products{
+    grid-template-columns:1fr;
+  }
+
+  .pic{
+    height:370px;
+  }
+
+  .features{
+    grid-template-columns:1fr;
+  }
+
+  .head{
+    display:block;
+  }
+
+  .head p{
+    margin-top:15px;
+  }
+
+  .formgrid{
+    grid-template-columns:1fr;
+  }
+
+  .field.full{
+    grid-column:auto;
+  }
+
+  .news form{
+    display:grid;
+
+    gap:10px;
+  }
+
+  .news button{
+    height:48px;
+  }
+
+  footer{
+    display:block;
+  }
+
+  .foot2{
+    margin-top:15px;
+  }
+
+  .modal{
+    padding:22px;
+  }
+
+  .modal h2{
+    font-size:38px;
+  }
+
+}
+
+
+/* ==============================
+   VÉRONA SIGN IN / SIGN UP
+============================== */
+
+.auth-modal{
+  width:min(470px,100%);
+  padding:0;
+  overflow:hidden;
+  background:radial-gradient(circle at 100% 0%,rgba(216,182,108,.10),transparent 35%),#0b0b0b;
+  border:1px solid #2b2b2b;
+}
+.auth-top{padding:34px 34px 20px;border-bottom:1px solid #202020;text-align:center}
+.auth-brand{font:600 28px "Cormorant Garamond";letter-spacing:5px}
+.auth-brand span{color:var(--gold)}
+.auth-sub{color:#777;font-size:10px;letter-spacing:2px;margin-top:8px}
+.auth-tabs{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid #222}
+.auth-tab{border:0;background:#090909;color:#777;padding:16px 10px;cursor:pointer;font-size:10px;font-weight:800;letter-spacing:2px;transition:.3s}
+.auth-tab.active{color:#111;background:var(--gold)}
+.auth-body{padding:28px 34px 34px}
+.auth-form{display:none}
+.auth-form.active{display:block}
+.auth-field{margin-bottom:14px}
+.auth-field label{display:block;color:#777;font-size:9px;letter-spacing:2px;margin-bottom:7px}
+.auth-field input{width:100%;background:#070707;border:1px solid #292929;color:#fff;padding:14px;outline:none;transition:.3s}
+.auth-field input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(216,182,108,.05)}
+.auth-submit{width:100%;margin-top:5px}
+.auth-note{color:#666;text-align:center;font-size:10px;line-height:1.7;margin-top:16px}
+.auth-switch{color:var(--gold);cursor:pointer;font-weight:700}
+.account-box{display:none}
+.account-box.active{display:block}
+.account-avatar{width:74px;height:74px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;margin:5px auto 15px;color:var(--gold);font:500 34px "Cormorant Garamond"}
+.account-name{text-align:center;font:500 34px "Cormorant Garamond"}
+.account-email{text-align:center;color:#777;font-size:11px;margin-top:5px}
+.account-actions{display:grid;gap:10px;margin-top:25px}
+.auth-danger{border-color:#633;color:#e88989;background:transparent}
+.auth-danger:hover{border-color:#f77;color:#fff;background:#401414}
+@media(max-width:560px){
+  .auth-top{padding:28px 22px 18px}
+  .auth-body{padding:24px 22px 28px}
+}
+
+
+/* CUSTOM SCROLLBAR
+============================== */
+
+::-webkit-scrollbar{
+  width:8px;
+}
+
+::-webkit-scrollbar-track{
+  background:#050505;
+}
+
+::-webkit-scrollbar-thumb{
+  background:#333;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background:var(--gold);
+}
+
+
+/* Scoped luxury intro animation */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* LUXURY INTRO SCREEN */
+#verona-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at center,
+        #211b10 0%, #0b0a08 42%, #030303 100%);
+    transition: opacity 1.2s ease, visibility 1.2s ease;
+}
+
+#verona-intro.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.intro-content {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* GOLDEN LIGHT SWEEP */
+.light-sweep {
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 45%;
+    height: 200%;
+    transform: rotate(25deg);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(218, 180, 104, 0.07),
+        rgba(255, 226, 166, 0.2),
+        rgba(218, 180, 104, 0.07),
+        transparent
+    );
+    animation: sweep 3.5s ease-in-out 0.2s forwards;
+}
+
+@keyframes sweep {
+    0% { left: -100%; }
+    100% { left: 150%; }
+}
+
+/* ORNAMENTAL GOLD RINGS */
+.gold-ring {
+    position: absolute;
+    left: 50%;
+    top: 43%;
+    width: min(75vw, 560px);
+    aspect-ratio: 1;
+    border: 1px solid rgba(213, 177, 104, 0.17);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0.65);
+    opacity: 0;
+    animation: ringAppear 2s ease-out 0.2s forwards;
+}
+
+.gold-ring::before,
+.gold-ring::after {
+    content: "";
+    position: absolute;
+    inset: 18px;
+    border: 1px solid rgba(213, 177, 104, 0.1);
+    border-radius: 50%;
+}
+
+.gold-ring::after {
+    inset: 38px;
+    border-style: dashed;
+    animation: rotateRing 40s linear infinite;
+}
+
+@keyframes ringAppear {
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes rotateRing {
+    to { transform: rotate(360deg); }
+}
+
+/* SMALL TOP LABEL */
+.eyebrow {
+    color: #ad9565;
+    font-size: 10px;
+    letter-spacing: 7px;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fadeUp 1s ease 0.4s forwards;
+}
+
+/* MAIN BRAND LOGO */
+.intro-content .logo {
+    position: relative;
+    color: #d9b873;
+    font-family: "Times New Roman", Georgia, serif;
+    font-size: clamp(46px, 10vw, 108px);
+    font-weight: normal;
+    letter-spacing: clamp(8px, 1.5vw, 20px);
+    padding-left: clamp(8px, 1.5vw, 20px);
+    opacity: 0;
+    transform: translateY(28px) scale(0.93);
+    filter: blur(8px);
+    text-shadow:
+        0 0 15px rgba(221, 183, 112, 0.15),
+        0 0 50px rgba(221, 183, 112, 0.08);
+    animation: logoReveal 1.7s cubic-bezier(.2,.8,.2,1)
+        0.5s forwards;
+}
+
+@keyframes logoReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+/* LOGO REFLECTION */
+.intro-content .logo::after {
+    content: "VÉRONA";
+    position: absolute;
+    inset: 0;
+    padding-left: inherit;
+    color: transparent;
+    background: linear-gradient(
+        110deg,
+        transparent 25%,
+        #fff4d2 48%,
+        transparent 70%
+    );
+    background-size: 250% 100%;
+    background-position: 150% 0;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: logoShine 1.8s ease 1.7s forwards;
+    pointer-events: none;
+}
+
+@keyframes logoShine {
+    to { background-position: -150% 0; }
+}
+
+/* GOLD LINE */
+.gold-line {
+    width: min(320px, 65vw);
+    height: 1px;
+    margin-top: 27px;
+    background: rgba(213, 177, 104, 0.2);
+    transform: scaleX(0);
+    animation: lineOpen 1s ease 1.2s forwards;
+    overflow: hidden;
+    position: relative;
+}
+
+.gold-line::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg, transparent, #fff0c1, #bd914b, transparent
+    );
+    transform: translateX(-100%);
+    animation: lineShine 1.5s ease 1.7s forwards;
+}
+
+@keyframes lineOpen {
+    to { transform: scaleX(1); }
+}
+
+@keyframes lineShine {
+    to { transform: translateX(100%); }
+}
+
+/* TAGLINE */
+.tagline {
+    color: #d7cbb2;
+    font-size: 11px;
+    letter-spacing: 5px;
+    margin-top: 25px;
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fadeUp 1s ease 1.5s forwards;
+}
+
+.subtitle {
+    color: #8c7b5c;
+    font-family: Georgia, serif;
+    font-size: 13px;
+    font-style: italic;
+    letter-spacing: 1px;
+    margin-top: 15px;
+    opacity: 0;
+    animation: fadeUp 1s ease 1.9s forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* LOADING BAR */
+.intro-content .loader {
+    width: 130px;
+    height: 2px;
+    background: rgba(213, 177, 104, 0.15);
+    margin-top: 48px;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 2s forwards;
+}
+
+.intro-content .loader span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg, #8f6b32, #ffdf9c, #b38b48
+    );
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: loading 2s ease 2.2s forwards;
+}
+
+@keyframes loading {
+    to { transform: scaleX(1); }
+}
+
+/* FLOATING GOLD DUST */
+.dust {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #e0bf7a;
+    box-shadow: 0 0 12px rgba(224, 191, 122, 0.8);
+    opacity: 0;
+    animation: floatDust 3.5s ease-in-out infinite;
+}
+
+.dust:nth-of-type(1) {
+    top: 22%; left: 18%; animation-delay: 0.2s;
+}
+.dust:nth-of-type(2) {
+    top: 30%; left: 83%; animation-delay: 1s;
+}
+.dust:nth-of-type(3) {
+    top: 72%; left: 23%; animation-delay: 1.7s;
+}
+.dust:nth-of-type(4) {
+    top: 68%; left: 78%; animation-delay: 0.7s;
+}
+.dust:nth-of-type(5) {
+    top: 18%; left: 55%; animation-delay: 2.1s;
+}
+.dust:nth-of-type(6) {
+    top: 53%; left: 12%; animation-delay: 1.3s;
+}
+.dust:nth-of-type(7) {
+    top: 49%; left: 89%; animation-delay: 2.4s;
+}
+.dust:nth-of-type(8) {
+    top: 83%; left: 61%; animation-delay: 0.9s;
+}
+
+@keyframes floatDust {
+    0%, 100% {
+        opacity: 0;
+        transform: translateY(15px) scale(.5);
+    }
+    35%, 65% {
+        opacity: .9;
+        transform: translateY(-15px) scale(1);
+    }
+}
+
+/* BOTTOM DECORATIVE DETAIL */
+.bottom-detail {
+    position: absolute;
+    bottom: 35px;
+    color: #776344;
+    font-size: 9px;
+    letter-spacing: 4px;
+    opacity: 0;
+    animation: fadeUp 1s ease 2.2s forwards;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .gold-ring { width: 90vw; }
+    .eyebrow { letter-spacing: 4px; }
+    .tagline { letter-spacing: 3px; }
+    .subtitle { font-size: 12px; }
+}
+
+/* ACCESSIBILITY */
+@media (prefers-reduced-motion: reduce) {
+    #verona-intro *,
+    #verona-intro::before {
+        animation-duration: 0.01ms !important;
+        animation-delay: 0ms !important;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ============================
+     LOADER
+============================= -->
+
+
+
+
+<!-- COMPLETE VÉRONA ANIMATION -->
+<div id="verona-intro">
+
+    <div class="light-sweep"></div>
+    <div class="gold-ring"></div>
+
+    <span class="dust"></span>
+    <span class="dust"></span>
+    <span class="dust"></span>
+    <span class="dust"></span>
+    <span class="dust"></span>
+    <span class="dust"></span>
+    <span class="dust"></span>
+    <span class="dust"></span>
+
+    <div class="intro-content">
+
+        <div class="eyebrow">
+            THE ART OF FINE WATCHMAKING
+        </div>
+
+        <div class="logo">VÉRONA</div>
+
+        <div class="gold-line"></div>
+
+        <div class="tagline">
+            TIMELESS ELEGANCE
+        </div>
+
+        <div class="subtitle">
+            A legacy on your wrist.
+        </div>
+
+        <div class="loader">
+            <span></span>
+        </div>
+
+    </div>
+
+    <div class="bottom-detail">
+        EST. IN ELEGANCE
+    </div>
+
+</div>
+
+
+
+
+<script>
+(function () {
+    const intro = document.getElementById("verona-intro");
+
+    if (!intro) return;
+
+    // Luxury intro automatically disappears after 4.8 seconds
+    window.setTimeout(function () {
+        intro.classList.add("hide");
+    }, 4800);
+
+    // Remove overlay from layout after the fade-out
+    window.setTimeout(function () {
+        intro.style.display = "none";
+    }, 6100);
+})();
+</script>
+
+
+
+
+
+<!-- PARTICLES -->
+
+<div id="particles"></div>
+
+
+<!-- ============================
+     NAVBAR
+============================= -->
+
+<nav>
+
+  <a
+    class="logo"
+    href="#home"
+  >
+    VÉRONA<span>.</span>
+  </a>
+
+
+  <div class="navlinks">
+
+    <a href="#home">
+      HOME
+    </a>
+
+    <a href="#collection">
+      COLLECTION
+    </a>
+
+    <a href="#atelier">
+      ATELIER
+    </a>
+
+    <a href="#features">
+      FEATURES
+    </a>
+
+  </div>
+
+
+  <button
+    class="icon"
+    onclick="openCart()"
+    aria-label="Shopping cart"
+  >
+
+    🛒
+
+    <span
+      class="count"
+      id="cartCount"
+    >
+      0
+    </span>
+
+  </button>
+
+
+  <button
+    class="icon account-icon"
+    onclick="openAuth()"
+    aria-label="Sign in or account"
+    title="Sign In / Account"
+  >
+    ♙
+  </button>
+
+
+</nav>
+
+
+<!-- ============================
+     HERO
+============================= -->
+
+<section
+  class="hero"
+  id="home"
+>
+
+  <div class="hero-grid">
+
+
+    <div>
+
+      <div class="kicker">
+        EST. 1987 • SWISS INSPIRED
+      </div>
+
+
+      <h1>
+
+        TIME<br>
+
+        <em>BEYOND</em><br>
+
+        ORDINARY.
+
+      </h1>
+
+
+      <p>
+
+        Discover a new generation of luxury timepieces —
+        sculpted for those who believe every second should
+        make a statement.
+
+      </p>
+
+
+      <div class="buttons">
+
+        <a
+          class="btn"
+          href="#collection"
+        >
+          EXPLORE COLLECTION
+        </a>
+
+
+        <button
+          class="btn dark"
+          onclick="openFeatured()"
+        >
+          VIEW SIGNATURE
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- HERO WATCH -->
+
+    <div class="hero-watch">
+
+      <div class="orbit o1"></div>
+
+      <div class="orbit o2"></div>
+
+
+      <img
+        class="hero-img"
+        src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=1000&q=90"
+        alt="Luxury VÉRONA watch"
+        onerror="this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1000&q=90'"
+      >
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ============================
+     TICKER
+============================= -->
+
+<div class="ticker">
+
+  <div>
+
+    VÉRONA LUXURY
+
+    <span>✦</span>
+
+    CRAFTED FOR THE BOLD
+
+    <span>✦</span>
+
+    PRECISION MOVEMENT
+
+    <span>✦</span>
+
+    LIMITED COLLECTION
+
+    <span>✦</span>
+
+    VÉRONA LUXURY
+
+    <span>✦</span>
+
+    CRAFTED FOR THE BOLD
+
+    <span>✦</span>
+
+    PRECISION MOVEMENT
+
+    <span>✦</span>
+
+    LIMITED COLLECTION
+
+  </div>
+
+</div>
+
+
+<!-- ============================
+     COLLECTION
+============================= -->
+
+<section id="collection">
+
+
+  <div class="head">
+
+    <div>
+
+      <div class="kicker">
+        THE COLLECTION
+      </div>
+
+      <h2>
+        Icons of Time.
+      </h2>
+
+    </div>
+
+
+    <p>
+
+      Sixteen signature pieces with distinct personalities,
+      premium finishes and timeless character.
+
+    </p>
+
+  </div>
+
+
+  <!-- CONTROLS -->
+
+  <div class="controls">
+
+    <input
+      id="search"
+      class="search"
+      placeholder="Search your next timepiece..."
+      oninput="render()"
+    >
+
+
+    <button
+      class="filter active"
+      onclick="filterSet('all',this)"
+    >
+      ALL
+    </button>
+
+
+    <button
+      class="filter"
+      onclick="filterSet('classic',this)"
+    >
+      CLASSIC
+    </button>
+
+
+    <button
+      class="filter"
+      onclick="filterSet('chrono',this)"
+    >
+      CHRONOGRAPH
+    </button>
+
+
+    <button
+      class="filter"
+      onclick="filterSet('sport',this)"
+    >
+      SPORT
+    </button>
+
+
+    <button
+      class="filter"
+      onclick="filterSet('gold',this)"
+    >
+      GOLD
+    </button>
+
+  </div>
+
+
+  <!-- PRODUCTS -->
+
+  <div
+    class="products"
+    id="products"
+  ></div>
+
+
+</section>
+
+
+<!-- ============================
+     ATELIER
+============================= -->
+
+<section id="atelier">
+
+  <div class="showcase">
+
+
+    <div class="show-img">
+
+      <img
+        src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=1200&q=90"
+        alt="Midnight Chronograph"
+        onerror="this.src='https://images.unsplash.com/photo-1533139502658-0198f920d8e8?auto=format&fit=crop&w=1200&q=90'"
+      >
+
+    </div>
+
+
+    <div class="show-text">
+
+      <div class="kicker">
+        SIGNATURE SERIES
+      </div>
+
+
+      <h2>
+
+        Midnight<br>
+        Chronograph.
+
+      </h2>
+
+
+      <p>
+
+        A deep-black statement piece with a powerful
+        chronograph face, polished details and a presence
+        designed to stay unforgettable.
+
+      </p>
+
+
+      <button
+        class="btn"
+        onclick="add(3)"
+      >
+        ADD TO COLLECTION
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ============================
+     FEATURES
+============================= -->
+
+<section id="features">
+
+
+  <div class="head">
+
+    <div>
+
+      <div class="kicker">
+        WHY VÉRONA
+      </div>
+
+      <h2>
+        Made to Matter.
+      </h2>
+
+    </div>
+
+  </div>
+
+
+  <div class="features">
+
+
+    <div class="feature">
+
+      <div class="fi">
+        ✦
+      </div>
+
+      <h3>
+        Premium Design
+      </h3>
+
+      <p>
+
+        Elegant silhouettes and refined finishes built
+        to look exceptional from every angle.
+
+      </p>
+
+    </div>
+
+
+    <div class="feature">
+
+      <div class="fi">
+        ◉
+      </div>
+
+      <h3>
+        Precision
+      </h3>
+
+      <p>
+
+        Engineered for dependable everyday performance
+        with carefully selected movements.
+
+      </p>
+
+    </div>
+
+
+    <div class="feature">
+
+      <div class="fi">
+        ◆
+      </div>
+
+      <h3>
+        Quality
+      </h3>
+
+      <p>
+
+        Premium cases, durable straps and carefully
+        finished components for a lasting experience.
+
+      </p>
+
+    </div>
+
+
+    <div class="feature">
+
+      <div class="fi">
+        ◇
+      </div>
+
+      <h3>
+        2-Year Warranty
+      </h3>
+
+      <p>
+
+        Every VÉRONA timepiece comes with our standard
+        two-year limited warranty.
+
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- ============================
+     NEWSLETTER
+============================= -->
+
+<section>
+
+  <div class="news">
+
+    <div class="kicker">
+      THE VÉRONA JOURNAL
+    </div>
+
+
+    <h2>
+      Enter the world of time.
+    </h2>
+
+
+    <p>
+
+      Get new collection announcements, private releases
+      and watch stories.
+
+    </p>
+
+
+    <form onsubmit="subscribe(event)">
+
+      <input
+        id="email"
+        type="email"
+        placeholder="Your email address"
+        autocomplete="email"
+        required
+      >
+
+      <button>
+        JOIN
+      </button>
+
+    </form>
+
+  </div>
+
+</section>
+
+
+<!-- ============================
+     FOOTER
+============================= -->
+
+<footer>
+
+  <div>
+
+    <strong>
+      VÉRONA.
+    </strong>
+
+    <p>
+      Luxury watches for a life worth remembering.
+    </p>
+
+  </div>
+
+
+  <div class="foot2">
+
+    © 2026 VÉRONA.
+    ALL RIGHTS RESERVED.
+
+  </div>
+
+</footer>
+
+
+<!-- TOP BUTTON -->
+
+<button
+  id="top"
+  onclick="window.scrollTo({top:0,behavior:'smooth'})"
+>
+  ↑
+</button>
+
+
+<!-- ============================
+     SIGN IN / SIGN UP MODAL
+============================ -->
+<div class="overlay" id="authOverlay" onclick="outside(event,'authOverlay')">
+  <div class="modal auth-modal">
+    <button class="close" onclick="closeM('authOverlay')" aria-label="Close">×</button>
+
+    <div class="auth-top">
+      <div class="auth-brand">VÉRONA<span>.</span></div>
+      <div class="auth-sub">YOUR PRIVATE TIMEPIECE ACCOUNT</div>
+    </div>
+
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="signInTab" onclick="showAuthTab('signin')">SIGN IN</button>
+      <button class="auth-tab" id="signUpTab" onclick="showAuthTab('signup')">SIGN UP</button>
+    </div>
+
+    <div class="auth-body">
+
+      <form class="auth-form active" id="signinForm" onsubmit="signIn(event)">
+
+    <div class="auth-field">
+        <label for="email">EMAIL ADDRESS</label>
+        <input id="loginEmail" type="email" placeholder="your@email.com" autocomplete="email" required>
+    </div>
+
+    <div class="auth-field">
+        <label for="password">PASSWORD</label>
+        <input id="loginPassword" type="password" placeholder="Your password" autocomplete="current-password" minlength="6" required>
+    </div>
+
+    <div class="auth-note" style="text-align:right; margin:5px 0 15px;">
+        <span class="auth-switch" onclick="sendPasswordReset()">
+            Forgot Password?
+        </span>
+    </div>
+
+    <button class="btn auth-submit" type="submit">SIGN IN</button>
+
+    <div class="auth-note">
+        New to VÉRONA?
+        <span class="auth-switch" onclick="showAuthTab('signup')">Create an account</span>
+    </div>
+
+</form>
+
+      <form class="auth-form" id="signupForm" onsubmit="signUp(event)">
+        <div class="auth-field">
+          <label for="fullname">FULL NAME</label>
+          <input id="signupName" type="text" placeholder="Your full name" autocomplete="name" required>
+        </div>
+
+        <div class="auth-field">
+          <label for="email">EMAIL ADDRESS</label>
+          <input id="signupEmail" type="email" placeholder="your@email.com" autocomplete="email" required>
+        </div>
+
+        <div class="auth-field">
+          <label for="signupPassword">PASSWORD</label>
+          <input id="signupPassword" type="password" placeholder="Create a password" autocomplete="new-password" minlength="6" required>
+        </div>
+
+        <div class="auth-field">
+          <label for="confirmpassword">CONFIRM PASSWORD</label>
+          <input id="signupConfirm" type="password" placeholder="Confirm your password" autocomplete="new-password" minlength="6" required>
+        </div>
+
+        <button class="btn auth-submit" type="submit">CREATE ACCOUNT</button>
+
+        <div class="auth-note">
+          Already have an account?
+          <span class="auth-switch" onclick="showAuthTab('signin')">Sign in</span>
+        </div>
+      </form>
+
+      <div class="account-box" id="accountBox">
+        <div class="account-avatar" id="accountAvatar">V</div>
+        <div class="account-name" id="accountName">VÉRONA Client</div>
+        <div class="account-email" id="accountEmail">client@email.com</div>
+
+        <div class="account-actions">
+          <button class="btn" onclick="closeM('authOverlay')">CONTINUE SHOPPING</button>
+          <button class="btn auth-danger" onclick="signOut()">SIGN OUT</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ============================
+     CART MODAL
+============================= -->
+
+<div
+  class="overlay"
+  id="cartOverlay"
+  onclick="outside(event,'cartOverlay')"
+>
+
+  <div class="modal">
+
+
+    <button
+      class="close"
+      onclick="closeM('cartOverlay')"
+    >
+      ×
+    </button>
+
+
+    <h2>
+      Your Collection
+    </h2>
+
+
+    <div
+      id="cartList"
+      class="cart-list"
+    ></div>
+
+
+    <div class="total">
+
+      <span>
+        Total
+      </span>
+
+      <strong id="total">
+        $0
+      </strong>
+
+    </div>
+
+
+    <button
+      class="btn"
+      style="width:100%;margin-top:20px"
+      onclick="checkout()"
+    >
+      PROCEED TO ORDER
+    </button>
+
+
+  </div>
+
+</div>
+
+
+<!-- ============================
+     CHECKOUT MODAL
+============================= -->
+
+<div
+  class="overlay"
+  id="checkoutOverlay"
+  onclick="outside(event,'checkoutOverlay')"
+>
+
+  <div class="modal">
+
+
+    <button
+      class="close"
+      onclick="closeM('checkoutOverlay')"
+    >
+      ×
+    </button>
+
+
+    <h2>
+      Complete Your Order
+    </h2>
+
+
+    <form
+      id="checkoutForm"
+      onsubmit="placeOrder(event)"
+    >
+
+
+      <div class="formgrid">
+
+
+        <div class="field">
+
+          <label for="customername">
+            FULL NAME
+          </label>
+
+          <input
+            id="customerName"
+            type="text"
+            placeholder="Your full name"
+            required
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label for="phone">
+            PHONE NUMBER
+          </label>
+
+          <input
+            id="customerPhone"
+            type="tel"
+            placeholder="+92 300 1234567"
+            required
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label for="customerEmail">
+            EMAIL ADDRESS
+          </label>
+
+          <input
+            id="customerEmail"
+            type="email"
+            placeholder="your@email.com"
+            required
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label for="city">
+            CITY
+          </label>
+
+          <input
+            id="customerCity"
+            type="text"
+            placeholder="Your city"
+            required
+          >
+
+        </div>
+
+
+        <div class="field full">
+
+          <label for="address">
+            DELIVERY ADDRESS
+          </label>
+
+          <textarea
+            id="customerAddress"
+            placeholder="House / Street / Area / Complete address"
+            required
+          ></textarea>
+
+        </div>
+
+
+        <div class="field full">
+
+          <label for="paymentMethod">
+            PAYMENT METHOD
+          </label>
+
+          <select
+            id="paymentMethod"
+            required
+          >
+
+            <option value="">
+              Select payment method
+            </option>
+
+            <option value="Cash on Delivery">
+              Cash on Delivery
+            </option>
+
+            <option value="Bank Transfer">
+              Bank Transfer (manual)
+            </option>
+
+            <option value="EasyPaisa">
+              EasyPaisa (manual)
+            </option>
+
+            <option value="JazzCash">
+              JazzCash (manual)
+            </option>
+
+          </select>
+          <small style="color:#777;line-height:1.6">COD is available. Bank Transfer, EasyPaisa and JazzCash are manual methods; live online payment needs a payment gateway integration.</small>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="summary">
+
+        <strong>
+          ORDER SUMMARY
+        </strong>
+
+        <div
+          id="checkoutSummary"
+          style="margin-top:10px"
+        ></div>
+
+      </div>
+
+
+      <button
+        class="btn"
+        style="width:100%"
+        type="submit"
+      >
+        PLACE ORDER
+      </button>
+
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<!-- ============================
+     QUICK VIEW MODAL
+============================= -->
+
+<div
+  class="overlay"
+  id="quickOverlay"
+  onclick="outside(event,'quickOverlay')"
+>
+
+  <div class="modal">
+
+    <button
+      class="close"
+      onclick="closeM('quickOverlay')"
+    >
+      ×
+    </button>
+
+
+    <div id="quickContent"></div>
+
+  </div>
+
+</div>
+
+
+<!-- ============================
+     SUCCESS MODAL
+============================= -->
+
+<div
+  class="overlay"
+  id="successOverlay"
+>
+
+  <div class="modal">
+
+    <div class="success">
+
+
+      <div class="check">
+        ✓
+      </div>
+
+
+      <div class="kicker">
+        ORDER CONFIRMED
+      </div>
+
+
+      <h2>
+        Thank You.
+      </h2>
+
+
+      <p
+        id="successText"
+        style="
+        color:#888;
+        line-height:1.8;
+        margin-bottom:25px;
+        "
+      >
+        Your VÉRONA order has been received successfully. We will contact you soon on your provided phone/WhatsApp number.
+      </p>
+
+
+      <button
+        class="btn"
+        onclick="closeM('successOverlay')"
+      >
+        CONTINUE SHOPPING
+      </button>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div
+  class="toast"
+  id="toast"
+>
+  Added to your collection.
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const WHATSAPP_NUMBER = "923453010036";
+
+
+function money(amount) {
+  return new Intl.NumberFormat("en-PK", {
+    style: "currency", currency: "PKR", maximumFractionDigits: 0
+  }).format(Number(amount) || 0);
+}
+
+/* =========================================
+   PRODUCT DATABASE
+========================================= */
+
+let watches = [
+
+  {
+    id:1,
+    name:"Élite Gold",
+    price:14999,
+    cat:["classic","gold"],
+    tag:"BESTSELLER",
+    image:"https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=900&q=90",
+    desc:"A refined gold timepiece created for timeless elegance."
+  },
+
+  {
+    id:2,
+    name:"Royal Steel",
+    price:17999,
+    cat:["classic"],
+    tag:"ICON",
+    image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=90",
+    desc:"A powerful steel silhouette with a sophisticated finish."
+  },
+
+  {
+    id:3,
+    name:"Noir Chrono",
+    price:21999,
+    cat:["chrono"],
+    tag:"SIGNATURE",
+    image:"https://images.unsplash.com/photo-1533139502658-0198f920d8e8?auto=format&fit=crop&w=900&q=90",
+    desc:"Deep black chronograph styling with a bold modern character."
+  },
+
+  {
+    id:4,
+    name:"Ocean Master",
+    price:12999,
+    cat:["sport"],
+    tag:"SPORT",
+    image:"https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=900&q=90",
+    desc:"A sporty luxury watch designed for an active lifestyle."
+  },
+
+  {
+    id:5,
+    name:"Midnight Gold",
+    price:24999,
+    cat:["gold","classic"],
+    tag:"LIMITED",
+    image:"https://images.unsplash.com/photo-1594534475808-b18fc33b045e?auto=format&fit=crop&w=900&q=90",
+    desc:"Dark luxury meets warm gold detailing."
+  },
+
+  {
+    id:6,
+    name:"Classic Silver",
+    price:10999,
+    cat:["classic"],
+    tag:"CLASSIC",
+    image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvAt3n6aaZtJQgR5W_JtMHnh48RnRTwW1yShnQMoidJA&s=10",
+    desc:"Clean silver lines with an effortlessly elegant profile."
+  },
+
+  {
+    id:7,
+    name:"Imperial Black",
+    price:19999,
+    cat:["sport","classic"],
+    tag:"NEW",
+    image:"https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=900&q=90",
+    desc:"A commanding black watch with an unmistakable presence."
+  },
+
+  {
+    id:8,
+    name:"Royal Chronograph",
+    price:27999,
+    cat:["chrono","gold"],
+    tag:"PREMIUM",
+    image:"https://images.unsplash.com/photo-1557531365-e8b22d93dbd0?auto=format&fit=crop&w=900&q=90",
+    desc:"Precision chronograph styling with luxurious golden details."
+  },
+
+  {
+    id:9,
+    name:"Golden Crown",
+    price:32999,
+    cat:["gold"],
+    tag:"ULTRA",
+    image:"https://images.unsplash.com/photo-1594576722512-582bcd46fba3?auto=format&fit=crop&w=900&q=90",
+    desc:"An extravagant gold statement created for special moments."
+  },
+
+  {
+    id:10,
+    name:"Shadow X",
+    price:15999,
+    cat:["sport"],
+    tag:"STEALTH",
+    image:"https://images.unsplash.com/photo-1539874754764-5a96559165b0?auto=format&fit=crop&w=900&q=90",
+    desc:"Stealth-inspired design with a powerful contemporary edge."
+  },
+
+  {
+    id:11,
+    name:"Prestige Silver",
+    price:18999,
+    cat:["classic"],
+    tag:"NEW",
+    image:"https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?auto=format&fit=crop&w=900&q=90",
+    desc:"Elegant silver finishing with a premium luxury profile."
+  },
+
+  {
+    id:12,
+    name:"Titan Chrono",
+    price:25999,
+    cat:["chrono","sport"],
+    tag:"LIMITED",
+    image:"https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=900&q=90",
+    desc:"A technical chronograph inspired by high-performance machines."
+  },
+
+  {
+    id:13,
+    name:"Monarch Rose",
+    price:29999,
+    cat:["gold","classic"],
+    tag:"EXCLUSIVE",
+    image:"https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?auto=format&fit=crop&w=900&q=90",
+    desc:"Elegant warm-toned luxury with a sophisticated royal character."
+  },
+
+  {
+    id:14,
+    name:"Apex Black",
+    price:22999,
+    cat:["sport","chrono"],
+    tag:"APEX",
+    image:"https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?auto=format&fit=crop&w=900&q=90",
+    desc:"Aggressive lines and chronograph details for a modern look."
+  },
+
+  {
+    id:15,
+    name:"Heritage Gold",
+    price:26999,
+    cat:["gold","classic"],
+    tag:"HERITAGE",
+    image:"https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=900&q=90",
+    desc:"A timeless design inspired by traditional luxury watchmaking."
+  },
+
+  {
+    id:16,
+    name:"Velocity Pro",
+    price:19999,
+    cat:["sport","chrono"],
+    tag:"RACING",
+    image:"https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=900&q=90",
+    desc:"A dynamic racing-inspired chronograph with premium finishing."
+  }
+
+];
+
+
+/* =========================================
+   STATE
+========================================= */
+
+let cart =
+JSON.parse(
+localStorage.getItem("veronaCart")
+) || [];
+
+let currentFilter="all";
+
+
+/* =========================================
+   LOADER
+========================================= */
+
+window.addEventListener("load",()=>{
+
+  setTimeout(()=>{
+
+    const loader = document.getElementById("loader");
+if (loader) loader.style.opacity = "0";
+    setTimeout(()=>{
+
+     if (loader) loader.style.display = "none";
+
+    },800);
+
+  },1900);
+
+});
+
+
+/* =========================================
+   PARTICLES
+========================================= */
+
+const particleBox =
+document.getElementById("particles");
+
+for(let i=0;i<45;i++){
+
+  const p=document.createElement("span");
+
+  p.className="particle";
+
+  p.style.left=
+  Math.random()*100+"%";
+
+  p.style.animationDuration=
+  (8+Math.random()*15)+"s";
+
+  p.style.animationDelay=
+  (Math.random()*10)+"s";
+
+  p.style.opacity=
+  (.08+Math.random()*.25);
+
+  particleBox.appendChild(p);
+
+}
+
+
+/* =========================================
+   RENDER PRODUCTS
+========================================= */
+
+function render(){
+
+  const products=
+  document.getElementById("products");
+
+  const search=
+  document
+  .getElementById("search")
+  .value
+  .toLowerCase()
+  .trim();
+
+
+  products.innerHTML="";
+
+
+  const filtered =
+  watches.filter(w=>{
+
+    const filterMatch =
+    currentFilter==="all" ||
+    w.cat.includes(currentFilter);
+
+    const searchMatch =
+    w.name.toLowerCase().includes(search) ||
+    w.desc.toLowerCase().includes(search);
+
+    return filterMatch && searchMatch;
+
+  });
+
+
+  if(filtered.length===0){
+
+    products.innerHTML=`
+
+      <div style="
+        grid-column:1/-1;
+        text-align:center;
+        padding:70px;
+        color:#777;
+      ">
+
+        <h2 style="
+          font:500 40px 'Cormorant Garamond';
+          color:#eee;
+          margin-bottom:10px;
+        ">
+          No Timepiece Found
+        </h2>
+
+        <p>
+          Try another search or category.
+        </p>
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  filtered.forEach((w,index)=>{
+
+    const el=
+    document.createElement("article");
+
+    el.className="product";
+
+
+    el.innerHTML=`
+
+      <div class="pic">
+
+        <span class="badge">
+          ${w.tag}
+        </span>
+
+
+        <button
+          class="wish"
+          onclick="wishlist(this)"
+          aria-label="Wishlist"
+        >
+          ♡
+        </button>
+
+
+        <img
+          src="${w.image}"
+          alt="${w.name}"
+          loading="lazy"
+          onerror="this.src='https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=900&q=90'"
+        >
+
+      </div>
+
+
+      <div class="info">
+
+        <small>
+          VÉRONA COLLECTION
+        </small>
+
+
+        <h3>
+          ${w.name}
+        </h3>
+
+
+        <div class="stars">
+          ★★★★★
+        </div>
+
+
+        <div class="price">
+          ${money(w.price)}
+        </div>
+
+
+        <div class="row">
+
+          <button
+            class="add"
+            onclick="add(${w.id})"
+          >
+            ADD TO COLLECTION
+          </button>
+
+
+          <button
+            class="quick"
+            onclick="quick(${w.id})"
+            aria-label="Quick view"
+          >
+            ⌕
+          </button>
+
+        </div>
+
+      </div>
+
+    `;
+
+
+    products.appendChild(el);
+
+
+    setTimeout(()=>{
+
+      el.classList.add("show");
+
+    },index*60);
+
+  });
+
+}
+
+
+/* =========================================
+   FILTER
+========================================= */
+
+function filterSet(filter,button){
+
+  currentFilter=filter;
+
+
+  document
+  .querySelectorAll(".filter")
+  .forEach(x=>
+    x.classList.remove("active")
+  );
+
+
+  button.classList.add("active");
+
+
+  render();
+
+}
+
+
+/* =========================================
+   ADD TO CART
+========================================= */
+
+function add(id){
+
+  const selectedWatch = watches.find(x => x.id === id);
+  if (!selectedWatch) { toast("This watch is currently unavailable."); return; }
+  if (selectedWatch.stock !== undefined && selectedWatch.stock !== null && selectedWatch.stock < 1) {
+    toast("This watch is currently out of stock."); return;
+  }
+
+  const item=
+  cart.find(x=>x.id===id);
+
+
+  if(item){
+
+    item.qty++;
+
+  }else{
+
+    cart.push({
+      id:id,
+      qty:1
+    });
+
+  }
+
+
+  saveCart();
+
+  updateCart();
+
+
+  const watch=
+  watches.find(x=>x.id===id);
+
+
+  toast(
+    watch.name+
+    " added to your collection."
+  );
+
+}
+
+
+/* =========================================
+   SAVE CART
+========================================= */
+
+function saveCart(){
+
+  localStorage.setItem(
+    "veronaCart",
+    JSON.stringify(cart)
+  );
+
+}
+
+
+/* =========================================
+   UPDATE CART
+========================================= */
+
+function updateCart(){
+
+  const count=
+  cart.reduce(
+    (sum,item)=>
+    sum+item.qty,
+    0
+  );
+
+
+  document
+  .getElementById("cartCount")
+  .textContent=count;
+
+}
+
+
+/* =========================================
+   OPEN CART
+========================================= */
+
+function openCart(){
+
+  renderCart();
+
+
+  document
+  .getElementById("cartOverlay")
+  .classList.add("open");
+
+
+  document.body.classList.add("lock");
+
+}
+
+
+/* =========================================
+   RENDER CART
+========================================= */
+
+function renderCart(){
+
+  const list=
+  document.getElementById("cartList");
+
+
+  if(cart.length===0){
+
+    list.innerHTML=`
+
+      <div class="empty">
+
+        <div style="
+          font-size:45px;
+          margin-bottom:15px;
+        ">
+          ⌚
+        </div>
+
+
+        <h3 style="
+          font:500 32px 'Cormorant Garamond';
+          color:#eee;
+          margin-bottom:8px;
+        ">
+          Your collection is empty
+        </h3>
+
+
+        <p>
+          Add a VÉRONA timepiece to continue.
+        </p>
+
+      </div>
+
+    `;
+
+
+    document
+    .getElementById("total")
+    .textContent=money(0);
+
+
+    return;
+
+  }
+
+
+  let total=0;
+
+
+  list.innerHTML=
+  cart.map(item=>{
+
+    const w=
+    watches.find(
+      x=>x.id===item.id
+    );
+
+
+    const subtotal=
+    w.price*item.qty;
+
+
+    total+=subtotal;
+
+
+    return `
+
+      <div class="cart-item">
+
+
+        <img
+          src="${w.image}"
+          alt="${w.name}"
+          onerror="this.src='https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=300&q=80'"
+        >
+
+
+        <div>
+
+          <h4>
+            ${w.name}
+          </h4>
+
+
+          <p>
+            ${money(w.price)} each
+          </p>
+
+
+          <div class="qty">
+
+            <button
+              onclick="changeQty(${w.id},-1)"
+            >
+              −
+            </button>
+
+
+            <span>
+              ${item.qty}
+            </span>
+
+
+            <button
+              onclick="changeQty(${w.id},1)"
+            >
+              +
+            </button>
+
+
+            <button
+              class="remove"
+              onclick="removeItem(${w.id})"
+            >
+              Remove
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <strong>
+          ${money(subtotal)}
+        </strong>
+
+      </div>
+
+    `;
+
+  }).join("");
+
+
+  document
+  .getElementById("total")
+  .textContent=
+  money(total);
+
+}
+
+
+/* =========================================
+   QUANTITY
+========================================= */
+
+function changeQty(id,amount){
+
+  const item=
+  cart.find(x=>x.id===id);
+
+
+  if(!item)return;
+
+
+  item.qty+=amount;
+
+
+  if(item.qty<=0){
+
+    cart=
+    cart.filter(
+      x=>x.id!==id
+    );
+
+  }
+
+
+  saveCart();
+
+  updateCart();
+
+  renderCart();
+
+}
+
+
+/* =========================================
+   REMOVE ITEM
+========================================= */
+
+function removeItem(id){
+
+  cart=
+  cart.filter(
+    x=>x.id!==id
+  );
+
+
+  saveCart();
+
+  updateCart();
+
+  renderCart();
+
+
+  toast("Item removed.");
+
+}
+
+
+/* =========================================
+   CHECKOUT
+========================================= */
+
+function checkout(){
+
+  if(cart.length===0){
+
+    toast(
+      "Your collection is empty."
+    );
+
+    return;
+
+  }
+
+
+  renderCheckout();
+
+
+  closeM("cartOverlay");
+
+
+  document
+  .getElementById("checkoutOverlay")
+  .classList.add("open");
+
+
+  document.body.classList.add("lock");
+
+}
+
+
+/* =========================================
+   CHECKOUT SUMMARY
+========================================= */
+
+function renderCheckout(){
+
+  const summary=
+  document.getElementById(
+    "checkoutSummary"
+  );
+
+
+  let total=0;
+
+
+  summary.innerHTML=
+  cart.map(item=>{
+
+    const w=
+    watches.find(
+      x=>x.id===item.id
+    );
+
+
+    const subtotal=
+    w.price*item.qty;
+
+
+    total+=subtotal;
+
+
+    return `
+
+      <div style="
+        display:flex;
+        justify-content:space-between;
+        padding:6px 0;
+      ">
+
+        <span>
+          ${w.name} × ${item.qty}
+        </span>
+
+
+        <strong>
+          ${money(subtotal)}
+        </strong>
+
+      </div>
+
+    `;
+
+  }).join("");
+
+
+  summary.innerHTML+=`
+
+    <div style="
+      border-top:1px solid #333;
+      margin-top:8px;
+      padding-top:10px;
+      display:flex;
+      justify-content:space-between;
+      color:#fff;
+    ">
+
+      <strong>
+        TOTAL
+      </strong>
+
+
+      <strong style="color:var(--gold)">
+        ${money(total)}
+      </strong>
+
+    </div>
+
+  `;
+
+}
+
+
+/* =========================================
+   PLACE ORDER
+========================================= */
+
+
+async function placeOrder(event) {
+  event.preventDefault();
+  if (cart.length === 0) {
+    toast("Your collection is empty.");
+    return;
+  }
+  if (!supabaseClient) {
+    supabaseSetupMessage();
+    return;
+  }
+
+  const { data: userData, error: userError } = await supabaseClient.auth.getUser();
+  const user = userData?.user;
+  if (userError || !user) {
+    toast("Please sign in before placing an order.");
+    closeM("checkoutOverlay");
+    openAuth();
+    return;
+  }
+
+  const name = document.getElementById("customerName").value.trim();
+  const phone = document.getElementById("customerPhone").value.trim();
+  const email = document.getElementById("customerEmail").value.trim();
+  const city = document.getElementById("customerCity").value.trim();
+  const address = document.getElementById("customerAddress").value.trim();
+  const payment = document.getElementById("paymentMethod").value;
+  const orderNumber = "VRN-" + Date.now().toString().slice(-8);
+  const items = cart.map((item) => {
+    const watch = watches.find((w) => w.id === item.id);
+    return {
+      product_id: item.id,
+      name: watch?.name || "VÉRONA Watch",
+      unit_price: Number(watch?.price) || 0,
+      quantity: Number(item.qty) || 1,
+      image_url: watch?.image || ""
+    };
+  });
+  const totalAmount = items.reduce((sum, item) => sum + item.unit_price * item.quantity, 0);
+  const submitButton = document.querySelector("#checkoutForm button[type='submit']");
+  submitButton.disabled = true;
+  submitButton.textContent = "PLACING ORDER…";
+
+  try {
+    const { error } = await supabaseClient.from("orders").insert({
+      order_number: orderNumber,
+      user_id: user.id,
+      customer_name: name,
+      phone,
+      email,
+      city,
+      address,
+      payment_method: payment,
+      items,
+      total: totalAmount,
+      status: "received"
+    });
+    if (error) throw error;
+
+    const order = {
+      orderNumber,
+      customer: { name, phone, email, city, address, payment },
+      items,
+      total: totalAmount,
+      date: new Date().toISOString(),
+      status: "Order Received"
+    };
+    localStorage.setItem("veronaLastOrder", JSON.stringify(order));
+
+    const itemsText = items.map((item, index) =>
+      `${index + 1}. ${item.name} x${item.quantity} — ${money(item.unit_price * item.quantity)}`
+    ).join("\n");
+
+    const whatsappMessage =
+      `NEW VÉRONA ORDER\n\nOrder Number: ${orderNumber}\n\nCUSTOMER DETAILS\n` +
+      `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nCity: ${city}\nAddress: ${address}\n` +
+      `Payment: ${payment}\n\nORDER ITEMS\n${itemsText}\n\nTOTAL: ${money(totalAmount)}\n\n` +
+      `Customer has placed an order on the VÉRONA website.`;
+
+    const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(whatsappURL, "_blank", "noopener,noreferrer");
+
+    document.getElementById("successText").innerHTML = `
+      Thank you, <strong style="color:#fff">${escapeHTML(name)}</strong>.
+      Your VÉRONA order has been saved.
+      <br><br>Order Number: <strong style="color:var(--gold)">${escapeHTML(orderNumber)}</strong>
+      <br>Payment: <strong style="color:#fff">${escapeHTML(payment)}</strong>
+      <br><br><small>For bank transfer, EasyPaisa or JazzCash, payment is manual and must be verified separately. This page does not process card payments.</small>
+    `;
+
+    cart = [];
+    saveCart();
+    updateCart();
+    document.getElementById("checkoutForm").reset();
+    closeM("checkoutOverlay");
+    document.getElementById("successOverlay").classList.add("open");
+    document.body.classList.add("lock");
+  } catch (error) {
+    console.error("Order could not be saved:", error);
+    toast(error.message || "Order could not be saved. Check your orders table and RLS policies.");
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = "PLACE ORDER";
+  }
+}
+
+/* =========================================
+   QUICK VIEW
+========================================= */
+
+function quick(id){
+
+  const w=
+  watches.find(
+    x=>x.id===id
+  );
+
+
+  if(!w)return;
+
+
+  document
+  .getElementById("quickContent")
+  .innerHTML=`
+
+    <div class="quick-grid">
+
+
+      <div>
+
+        <img
+          src="${w.image}"
+          alt="${w.name}"
+          onerror="this.src='https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=900&q=90'"
+        >
+
+      </div>
+
+
+      <div>
+
+        <div class="kicker">
+          ${w.tag}
+        </div>
+
+
+        <h2 style="margin-top:10px">
+          ${w.name}
+        </h2>
+
+
+        <div class="stars">
+          ★★★★★
+        </div>
+
+
+        <div style="
+          font-size:25px;
+          font-weight:800;
+          margin:15px 0;
+          color:var(--gold);
+        ">
+          ${money(w.price)}
+        </div>
+
+
+        <p style="
+          color:#888;
+          line-height:1.8;
+          margin-bottom:25px;
+        ">
+          ${w.desc}
+        </p>
+
+
+        <div style="
+          border-top:1px solid #292929;
+          border-bottom:1px solid #292929;
+          padding:15px 0;
+          margin-bottom:20px;
+          color:#777;
+          font-size:11px;
+          line-height:2;
+        ">
+
+          <div>
+            ✓ Premium Finish
+          </div>
+
+          <div>
+            ✓ 2-Year Limited Warranty
+          </div>
+
+          <div>
+            ✓ Luxury Packaging
+          </div>
+
+          <div>
+            ✓ Secure Delivery
+          </div>
+
+        </div>
+
+
+        <button
+          class="btn"
+          style="width:100%"
+          onclick="add(${w.id});closeM('quickOverlay')"
+        >
+          ADD TO COLLECTION
+        </button>
+
+      </div>
+
+
+    </div>
+
+  `;
+
+
+  document
+  .getElementById("quickOverlay")
+  .classList.add("open");
+
+
+  document.body.classList.add("lock");
+
+}
+
+
+/* =========================================
+   FEATURED WATCH
+========================================= */
+
+function openFeatured(){
+
+  quick(3);
+
+}
+
+
+/* =========================================
+   WISHLIST
+========================================= */
+
+function wishlist(button){
+
+  button.classList.toggle("liked");
+
+
+  button.textContent=
+  button.classList.contains("liked")
+  ? "♥"
+  : "♡";
+
+
+  if(
+    button.classList.contains("liked")
+  ){
+
+    toast(
+      "Added to wishlist."
+    );
+
+  }else{
+
+    toast(
+      "Removed from wishlist."
+    );
+
+  }
+
+}
+
+
+/* =========================================
+   MODALS
+========================================= */
+
+function closeM(id){
+
+  document
+  .getElementById(id)
+  .classList.remove("open");
+
+
+  const opened=
+  document.querySelector(
+    ".overlay.open"
+  );
+
+
+  if(!opened){
+
+    document.body.classList.remove(
+      "lock"
+    );
+
+  }
+
+}
+
+
+function outside(event,id){
+
+  if(
+    event.target.id===id
+  ){
+
+    closeM(id);
+
+  }
+
+}
+
+
+/* =========================================
+   TOAST
+========================================= */
+
+let toastTimer;
+
+
+function toast(message){
+
+  const box=
+  document.getElementById("toast");
+
+
+  box.textContent=message;
+
+
+  box.classList.add("show");
+
+
+  clearTimeout(
+    toastTimer
+  );
+
+
+  toastTimer=
+  setTimeout(()=>{
+
+    box.classList.remove(
+      "show"
+    );
+
+  },2500);
+
+}
+
+
+/* =========================================
+   NEWSLETTER
+========================================= */
+
+function subscribe(event){
+
+  event.preventDefault();
+
+
+  const email=
+  document
+  .getElementById("email")
+  .value;
+
+
+  if(!email)return;
+
+
+  localStorage.setItem(
+    "veronaSubscriber",
+    email
+  );
+
+
+  document
+  .getElementById("email")
+  .value="";
+
+
+  toast(
+    "Welcome to the VÉRONA Journal."
+  );
+
+}
+
+
+/* =========================================
+   ESCAPE HTML
+========================================= */
+
+function escapeHTML(value){
+
+  return String(value)
+
+  .replace(
+    /&/g,
+    "&amp;"
+  )
+
+  .replace(
+    /</g,
+    "&lt;"
+  )
+
+  .replace(
+    />/g,
+    "&gt;"
+  )
+
+  .replace(
+    /"/g,
+    "&quot;"
+  )
+
+  .replace(
+    /'/g,
+    "&#039;"
+  );
+
+}
+
+
+/* =========================================
+   SCROLL TOP
+========================================= */
+
+window.addEventListener(
+  "scroll",
+  ()=>{
+
+    const top=
+    document.getElementById(
+      "top"
+    );
+
+
+    if(window.scrollY>500){
+
+      top.classList.add(
+        "visible"
+      );
+
+    }else{
+
+      top.classList.remove(
+        "visible"
+      );
+
+    }
+
+  }
+);
+
+
+/* =========================================
+   NAVBAR SCROLL
+========================================= */
+
+window.addEventListener(
+  "scroll",
+  ()=>{
+
+    const nav=
+    document.querySelector(
+      "nav"
+    );
+
+
+    if(window.scrollY>50){
+
+      nav.style.background=
+      "rgba(3,3,3,.94)";
+
+    }else{
+
+      nav.style.background=
+      "rgba(3,3,3,.72)";
+
+    }
+
+  }
+);
+
+
+/* =========================================
+   3D PRODUCT EFFECT
+========================================= */
+
+document.addEventListener(
+  "mousemove",
+  (e)=>{
+
+    const cards=
+    document.querySelectorAll(
+      ".product"
+    );
+
+
+    cards.forEach(card=>{
+
+      const rect=
+      card.getBoundingClientRect();
+
+
+      if(
+        e.clientX>=rect.left &&
+        e.clientX<=rect.right &&
+        e.clientY>=rect.top &&
+        e.clientY<=rect.bottom
+      ){
+
+        const x=
+        (e.clientX-rect.left)/
+        rect.width-.5;
+
+
+        const y=
+        (e.clientY-rect.top)/
+        rect.height-.5;
+
+
+        card.style.transform=
+        `translateY(-10px)
+         rotateX(${y*-3}deg)
+         rotateY(${x*3}deg)`;
+
+      }else{
+
+        if(
+          card.classList.contains(
+            "show"
+          )
+        ){
+
+          card.style.transform="";
+
+        }
+
+      }
+
+    });
+
+  }
+);
+
+
+/* =========================================
+   HERO 3D MOVEMENT
+========================================= */
+
+const heroWatch=
+document.querySelector(
+  ".hero-watch"
+);
+
+const heroImg=
+document.querySelector(
+  ".hero-img"
+);
+
+
+document.addEventListener(
+  "mousemove",
+  (e)=>{
+
+    if(!heroWatch)return;
+
+
+    const x=
+    e.clientX/
+    window.innerWidth-.5;
+
+
+    const y=
+    e.clientY/
+    window.innerHeight-.5;
+
+
+    heroImg.style.transform=
+    `translate(
+      ${x*12}px,
+      ${y*10}px
+    )
+    rotateY(${x*8}deg)
+    rotateX(${y*-5}deg)`;
+
+  }
+);
+
+
+/* =========================================
+   KEYBOARD ESC
+========================================= */
+
+document.addEventListener(
+  "keydown",
+  (e)=>{
+
+    if(e.key==="Escape"){
+
+      document
+      .querySelectorAll(
+        ".overlay.open"
+      )
+      .forEach(x=>{
+
+        x.classList.remove(
+          "open"
+        );
+
+      });
+
+
+      document.body.classList.remove(
+        "lock"
+      );
+
+    }
+
+  }
+);
+
+
+
+/* =========================================
+   VÉRONA SIGN IN / SIGN UP
+========================================= */
+
+
+/* =========================================
+   SUPABASE AUTHENTICATION
+   Add your Supabase Project URL and Publishable Key below.
+   Never place a Supabase secret/service_role key in this file.
+========================================= */
+const SUPABASE_URL = "https://sqrctxqcqmybdjufnraw.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_xe0MqCMX-0GPFRqH5USyHg_1vXoJEmA";
+let supabaseClient = null;
+
+if (
+  window.supabase &&
+  SUPABASE_URL.startsWith("https://") &&
+  !SUPABASE_URL.includes("YOUR_SUPABASE") &&
+  SUPABASE_PUBLISHABLE_KEY &&
+  !SUPABASE_PUBLISHABLE_KEY.includes("YOUR_SUPABASE")
+) {
+  supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
+  );
+}
+
+function openAuth() {
+  document.getElementById("authOverlay").classList.add("open");
+  document.body.classList.add("lock");
+  showAuthTab("signin");
+  refreshAuthView();
+}
+
+function showAuthTab(tab) {
+  const signinForm = document.getElementById("signinForm");
+  const signupForm = document.getElementById("signupForm");
+  const accountBox = document.getElementById("accountBox");
+  const signInTab = document.getElementById("signInTab");
+  const signUpTab = document.getElementById("signUpTab");
+
+  accountBox.classList.remove("active");
+  if (tab === "signup") {
+    signinForm.classList.remove("active");
+    signupForm.classList.add("active");
+    signInTab.classList.remove("active");
+    signUpTab.classList.add("active");
+  } else {
+    signupForm.classList.remove("active");
+    signinForm.classList.add("active");
+    signUpTab.classList.remove("active");
+    signInTab.classList.add("active");
+  }
+}
+
+function supabaseSetupMessage() {
+  toast("Add your Supabase Project URL and Publishable Key in the code first.");
+}
+
+async function getCurrentUser() {
+  if (!supabaseClient) return null;
+  const { data, error } = await supabaseClient.auth.getUser();
+  if (error) return null;
+  return data.user || null;
+}
+
+async function refreshAuthView() {
+  if (!supabaseClient) return;
+  const user = await getCurrentUser();
+  if (user) showAccount(user);
+}
+
+async function signUp(event) {
+  event.preventDefault();
+  if (!supabaseClient) return supabaseSetupMessage();
+
+  const name = document.getElementById("signupName").value.trim();
+  const email = document.getElementById("signupEmail").value.trim().toLowerCase();
+  const password = document.getElementById("signupPassword").value;
+  const confirm = document.getElementById("signupConfirm").value;
+
+  if (password.length < 8) {
+    toast("Use a password with at least 8 characters.");
+    return;
+  }
+  if (password !== confirm) {
+    toast("Passwords do not match.");
+    return;
+  }
+
+  const button = document.querySelector("#signupForm button[type='submit']");
+  button.disabled = true;
+  button.textContent = "CREATING ACCOUNT…";
+  try {
+    const { data, error } = await supabaseClient.auth.signUp({
+      email,
+      password,
+      options: { data: { full_name: name } }
+    });
+    if (error) throw error;
+
+    document.getElementById("signupForm").reset();
+    if (data.session && data.user) {
+      showAccount(data.user);
+      toast("Your VÉRONA account is ready.");
+    } else {
+      showAuthTab("signin");
+      document.getElementById("loginEmail").value = email;
+      toast("Account created. Check your email to confirm, then sign in.");
+    }
+  } catch (error) {
+    toast(error.message || "Could not create your account.");
+  } finally {
+    button.disabled = false;
+    button.textContent = "CREATE ACCOUNT";
+  }
+}
+
+
+async function signIn(event) {
+    event.preventDefault();
+    if (!supabaseClient) return supabaseSetupMessage();
+
+    const email = document.getElementById("loginEmail").value.trim().toLowerCase();
+    const password = document.getElementById("loginPassword").value;
+    const button = document.querySelector("#signinForm button[type='submit']");
+    button.disabled = true;
+    button.textContent = "SIGNING IN…";
+
+    try {
+        const { data, error } = await supabaseClient.auth.signInWithPassword({
+            email,
+            password
+        });
+        if (error) throw error;
+
+        document.getElementById("signinForm").reset();
+        showAccount(data.user);
+        toast("Welcome back to VÉRONA.");
+
+    } catch (error) {
+        toast(error.message || "Sign in failed. Check your details.");
+
+    } finally {
+        button.disabled = false;
+        button.textContent = "SIGN IN";
+    }
+}
+
+
+// FORGOT PASSWORD FUNCTION
+async function sendPasswordReset() {
+  if (!supabaseClient) {
+    return supabaseSetupMessage();
+  }
+
+  const email = document.getElementById("loginEmail").value.trim().toLowerCase();
+
+  if (!email) {
+    toast("Please enter your email address first.");
+    document.getElementById("loginEmail").focus();
+    return;
+  }
+
+  try {
+    const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
+      redirectTo:  "https://transcendent-pixie-f0bbbf.netlify.app/"
+    });
+
+    if (error) throw error;
+
+    toast("Password reset link sent! Check your email.");
+
+  } catch (error) {
+    console.error("Password Reset Error:", error);
+    toast(error.message || "Could not send password reset email.");
+  }
+}
+
+
+async function saveNewPassword() {
+  if (!supabaseClient) {
+    return supabaseSetupMessage();
+  }
+
+  const newPassword = document.getElementById("newPassword").value;
+  const confirmPassword = document.getElementById("confirmPassword").value;
+
+  if (!newPassword || !confirmPassword) {
+    toast("Please fill both password fields.");
+    return;
+  }
+
+  if (newPassword !== confirmPassword) {
+    toast("Passwords do not match.");
+    return;
+  }
+
+  if (newPassword.length < 6) {
+    toast("Password must be at least 6 characters.");
+    return;
+  }
+
+  try {
+    const { error } = await supabaseClient.auth.updateUser({
+      password: newPassword
+    });
+
+    if (error) throw error;
+
+    toast("Password updated successfully!");
+
+    document.getElementById("passwordResetBox").style.display = "none";
+    document.getElementById("newPassword").value = "";
+    document.getElementById("confirmPassword").value = "";
+
+  } catch (error) {
+    console.error("Update Password Error:", error);
+    toast(error.message || "Could not update password.");
+  }
+}
+
+
+async function showAccount(user = null) {
+  user = user || await getCurrentUser();
+
+  if (!user) return showAuthTab("signin");
+
+  const name = user.user_metadata?.full_name ||
+    user.email?.split("@")[0] ||
+    "VÉRONA Client";
+
+  document.getElementById("signinForm").classList.remove("active");
+  document.getElementById("signupForm").classList.remove("active");
+  document.getElementById("signInTab").classList.remove("active");
+  document.getElementById("signUpTab").classList.remove("active");
+  document.getElementById("accountBox").classList.add("active");
+
+  document.getElementById("accountName").textContent = name;
+  document.getElementById("accountEmail").textContent = user.email || "";
+  document.getElementById("accountAvatar").textContent =
+    name.charAt(0).toUpperCase();
+}
+
+
+async function signOut() {
+  if (!supabaseClient) {
+    return supabaseSetupMessage();
+}
+
+  try {
+    const { error } = await supabaseClient.auth.signOut();
+
+    if (error) throw error;
+
+    closeM("authOverlay");
+    showAuthTab("signin");
+    toast("You have been signed out.");
+
+  } catch (error) {
+    console.error("Sign Out Error:", error);
+    toast(error.message || "Could not sign out.");
+  }
+}
+
+/* Load product rows from Supabase when configured; keep the built-in catalogue as fallback. */
+async function loadSupabaseProducts() {
+  if (!supabaseClient) return;
+  try {
+    const { data, error } = await supabaseClient
+      .from("products")
+      .select("id,name,description,price,image_url,stock")
+      .order("id", { ascending: true });
+
+    if (error) throw error;
+    if (Array.isArray(data) && data.length) {
+      watches = data.map((row) => ({
+        id: Number(row.id),
+        name: row.name || "VÉRONA Timepiece",
+        price: Number(row.price) || 0,
+        cat: ["classic"],
+        tag: Number(row.stock) > 0 ? "IN STOCK" : "CHECK AVAILABILITY",
+        image: row.image_url || "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=90",
+        desc: row.description || "A refined VÉRONA timepiece.",
+        stock: row.stock == null ? null : Number(row.stock)
+      }));
+    }
+  } catch (error) {
+    console.warn("Supabase products could not be loaded:", error.message);
+    toast("Showing the sample collection; check Supabase products setup.");
+  }
+}
+
+async function initializeVerona() {
+  await loadSupabaseProducts();
+  render();
+  updateCart();
+
+  if (supabaseClient) {
+    const { data: { subscription } } = supabaseClient.auth.onAuthStateChange((_event, session) => {
+     if (_event === "PASSWORD_RECOVERY") {
+  console.log("VÉRONA: Password recovery detected!");
+
+  const resetBox = document.getElementById("passwordResetBox");
+
+  if (resetBox) {
+    resetBox.style.display = "flex";
+  }
+} if (session?.user && document.getElementById("authOverlay").classList.contains("open")) {
+        showAccount(session.user);
+      }
+    });
+    // Keep the subscription alive for the page session.
+    window.veronaAuthSubscription = subscription;
+  }
+}
+
+/* =========================================
+   INITIALIZE WEBSITE
+========================================= */
+
+initializeVerona();
+
+</script>
+<script type="module">
+  import { createClient } from
+    'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+  const MODULE_SUPABASE_URL = 'https://sqrctxqcqmybdjufnraw.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_xe0MqCMX-0GPFRqH5USyHg_1vXoJEmA';
+
+  const supabase = createClient(
+   MODULE_SUPABASE_URL,
+    SUPABASE_KEY
+  );
+
+  window.supabaseClient = supabase;
+
+  console.log('Verona Supabase client initialized!');
+  supabase
+  .from("products")
+  .select("id")
+  .limit(1)
+  .then(({ data, error }) => {
+    console.log("DATABASE TEST:", { data, error });
+  });
+</script>
+<div id="passwordResetBox" style="display:none; position:fixed; inset:0; z-index:99999; background:#050505; align-items:center; justify-content:center; padding:20px;">
+  <div style="width:100%; max-width:400px; padding:30px; background:#111; border:1px solid #d8b66c; border-radius:12px; color:white;">
+    <h2 style="color:#d8b66c;">Reset Your Password</h2>
+
+    <input id="newPassword" type="password" placeholder="New Password" autocomplete="new-password" style="width:100%; padding:14px; margin:10px 0;">
+
+    <input id="confirmPassword" type="password" placeholder="Confirm Password" autocomplete="new-password" style="width:100%; padding:14px; margin:10px 0;">
+
+    <button onclick="saveNewPassword()" style="width:100%; padding:14px; background:#d8b66c; border:0; cursor:pointer;">
+      Update Password
+    </button>
+  </div>
+</div>
+</body>
+</html>
